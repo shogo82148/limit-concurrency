@@ -32,9 +32,9 @@ Deno.test(async function limitConcurrencyIterableTest() {
   }
 
   await limitConcurrency(tasks, limit);
-  assertEquals(concurrency, 0);
-  assertEquals(done, numTasks);
-  assertLessOrEqual(maxConcurrency, limit);
+  assertEquals(concurrency, 0, 'Expected all tasks to have completed');
+  assertEquals(done, numTasks, 'Expected all tasks to be marked as done');
+  assertLessOrEqual(maxConcurrency, limit, 'Expected max concurrency to not exceed the limit');
 });
 
 Deno.test(async function limitConcurrencyIteratorTest() {
