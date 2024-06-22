@@ -25,3 +25,5 @@ jobs:
       - name: publish
         run: |
           ./scripts/publish.sh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
