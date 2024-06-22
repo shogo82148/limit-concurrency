@@ -3,7 +3,7 @@ import {
   assertLessOrEqual,
   assertRejects,
 } from "jsr:@std/assert";
-import { limitConcurrency } from "./limit_concurrency.ts";
+import { limitConcurrency } from "./limit-concurrency.ts";
 
 // sleep is a utility function that resolves after the specified number of
 // milliseconds.
@@ -32,9 +32,13 @@ Deno.test(async function limitConcurrencyIterableTest() {
   }
 
   await limitConcurrency(tasks, limit);
-  assertEquals(concurrency, 0, 'Expected all tasks to have completed');
-  assertEquals(done, numTasks, 'Expected all tasks to be marked as done');
-  assertLessOrEqual(maxConcurrency, limit, 'Expected max concurrency to not exceed the limit');
+  assertEquals(concurrency, 0, "Expected all tasks to have completed");
+  assertEquals(done, numTasks, "Expected all tasks to be marked as done");
+  assertLessOrEqual(
+    maxConcurrency,
+    limit,
+    "Expected max concurrency to not exceed the limit",
+  );
 });
 
 Deno.test(async function limitConcurrencyIteratorTest() {
