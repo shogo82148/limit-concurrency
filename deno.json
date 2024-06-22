@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "exports": {
     ".": "./limit-concurrency.ts"
+  },
+  "imports": {
+    "@deno/dnt": "jsr:@deno/dnt@^0.41.2"
   }
 }
