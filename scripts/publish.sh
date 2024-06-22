@@ -6,7 +6,7 @@ set -euxo pipefail
 cd "$ROOT"
 
 # publish to jsr
-deno publish --dry-run
+deno publish
 
 # npm publish
 deno run -A scripts/build_npm.ts "$(jq .version deno.json)"
