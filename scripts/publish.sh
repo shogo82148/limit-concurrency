@@ -9,6 +9,6 @@ cd "$ROOT"
 deno publish
 
 # npm publish
-deno run -A scripts/build_npm.ts "$(jq .version deno.json)"
+deno run -A scripts/build_npm.ts "$(jq -r .version deno.json)"
 cd npm
 npm publish --access public --provenance
