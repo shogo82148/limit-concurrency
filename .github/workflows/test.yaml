@@ -25,9 +25,9 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - "22.0"
-          - "20.0"
-          - "18.0"
+          - "22.x"
+          - "20.x"
+          - "18.x"
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v1
