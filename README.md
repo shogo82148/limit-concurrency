@@ -11,7 +11,7 @@ completes, another task (if any remain) is started, maintaining the concurrency
 limit until all tasks have been executed.
 
 ```ts
-import { limitConcurrency } from "./limit-concurrency.ts";
+import { limitConcurrency } from "@shogo82148/limit-concurrency";
 
 function* taskGenerator(): Generator<() => Promise<void>> {
     for (let i = 0; i < 10; i++) {
