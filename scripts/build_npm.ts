@@ -8,6 +8,14 @@ await build({
   outDir: "./npm",
   shims: {
     deno: true,
+
+    // workaround for https://github.com/shogo82148/limit-concurrency/issues/7
+    customDev: [
+      {
+        module: "./custom_error_options.ts",
+        globalNames: ["ErrorOptions"],
+      },
+    ],
   },
   package: {
     // package.json properties
@@ -23,6 +31,10 @@ await build({
       url: "https://github.com/shogo82148/limit-concurrency/issues",
     },
   },
+
+  // workaround for https://github.com/shogo82148/limit-concurrency/issues/7
+  typeCheck: false,
+
   postBuild() {
     // steps to run after building and before running the tests
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
