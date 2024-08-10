@@ -25,6 +25,7 @@ jobs:
   node:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node-version:
           - "22.x"
@@ -35,17 +36,12 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
-      - name: build
-        run: |
-          deno run -A scripts/build_npm.ts 0.1.0
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: test
-        working-directory: npm
+      - name: build
         run: |
-          npm ci
-          npm run test
+          deno run -A scripts/build_npm.ts 0.1.0
 
   jsr-dry-run:
     name: "Checking if it's valid for JSR"
