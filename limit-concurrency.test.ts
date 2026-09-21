@@ -2,7 +2,7 @@ import {
   assertEquals,
   assertLessOrEqual,
   assertRejects,
-} from "jsr:@std/assert";
+} from "@std/assert";
 import { limitConcurrency } from "./limit-concurrency.ts";
 
 // sleep is a utility function that resolves after the specified number of
