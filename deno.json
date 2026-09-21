@@ -1,6 +1,6 @@
 {
   "name": "@shogo82148/limit-concurrency",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "exports": {
     ".": "./limit-concurrency.ts"
   },
